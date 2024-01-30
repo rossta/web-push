@@ -52,7 +52,7 @@ module WebPush
     end
 
     def encode64(bytes)
-      Base64.urlsafe_encode64(bytes)
+      Base64.urlsafe_encode64(bytes, padding: false)
     end
 
     def decode64(str)

@@ -32,21 +32,21 @@ module WebPush
     #
     # @return [String] encoded binary representation of 65-byte VAPID public key
     def public_key
-      encode64(curve.public_key.to_bn.to_s(2))
+      WebPush.encode64(curve.public_key.to_bn.to_s(2))
     end
 
     # Retrieve the encoded elliptic curve public key suitable for the Web Push request
     #
     # @return [String] the encoded VAPID public key for us in 'Encryption' header
     def public_key_for_push_header
-      trim_encode64(curve.public_key.to_bn.to_s(2))
+      public_key
     end
 
     # Retrive the encoded elliptic curve private key for VAPID protocol
     #
     # @return [String] base64 urlsafe-encoded binary representation of 32-byte VAPID private key
     def private_key
-      encode64(curve.private_key.to_s(2))
+      WebPush.encode64(curve.private_key.to_s(2))
     end
 
     def public_key=(key)
@@ -56,7 +56,7 @@ module WebPush
     def private_key=(key)
       set_keys! nil, key
     end
-    
+
     def set_keys!(public_key = nil, private_key = nil)
       if public_key.nil?
         public_key = curve.public_key
@@ -116,14 +116,6 @@ module WebPush
 
     def to_big_num(key)
       OpenSSL::BN.new(WebPush.decode64(key), 2)
-    end
-
-    def encode64(bin)
-      WebPush.encode64(bin)
-    end
-
-    def trim_encode64(bin)
-      encode64(bin).delete('=')
     end
   end
 end

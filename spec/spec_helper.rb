@@ -14,9 +14,9 @@ def vapid_options
 end
 
 def vapid_public_key
-  'BB37UCyc8LLX4PNQSe-04vSFvpUWGrENubUaslVFM_l5TxcGVMY0C3RXPeUJAQHKYlcOM2P4vTYmkoo0VZGZTM4='
+  'BB37UCyc8LLX4PNQSe-04vSFvpUWGrENubUaslVFM_l5TxcGVMY0C3RXPeUJAQHKYlcOM2P4vTYmkoo0VZGZTM4'
 end
 
 def vapid_private_key
-  'OPrw1Sum3gRoL4-DXfSCC266r-qfFSRZrnj8MgIhRHg='
+  'OPrw1Sum3gRoL4-DXfSCC266r-qfFSRZrnj8MgIhRHg'
 end
